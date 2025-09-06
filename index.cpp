@@ -60,7 +60,8 @@ private:
             file.close();
         }
     }
- void saveBooksToFile() {
+
+    void saveBooksToFile() {
         ofstream file(booksFile);
         if (file.is_open()) {
             for (Book &book : books) {
@@ -83,7 +84,7 @@ public:
         saveBooksToFile();
     }
 
-  void addBook() {
+    void addBook() {
         int id;
         string name, author;
 
@@ -91,7 +92,6 @@ public:
         cout << "Enter Book ID: ";
         cin >> id;
 
-        // Check if ID already exists
         for (Book &book : books) {
             if (book.id == id) {
                 cout << "Error! A book with this ID already exists." << endl;
@@ -99,7 +99,7 @@ public:
             }
         }
 
-        cin.ignore(); // Clear input buffer
+        cin.ignore();
         cout << "Enter Book Name: ";
         getline(cin, name);
         cout << "Enter Author Name: ";
@@ -111,7 +111,7 @@ public:
         saveBooksToFile();
     }
 
-       void displayAllBooks() {
+    void displayAllBooks() {
         if (books.empty()) {
             cout << "\nNo books in the library." << endl;
             return;
@@ -123,7 +123,7 @@ public:
         }
     }
 
-     void searchBook() {
+    void searchBook() {
         int searchId;
         cout << "\n--- Search for a Book ---" << endl;
         cout << "Enter Book ID to search: ";
@@ -139,7 +139,7 @@ public:
         cout << "Book with ID " << searchId << " not found." << endl;
     }
 
- void issueBook() {
+    void issueBook() {
         int issueId;
         string studentName;
         cout << "\n--- Issue a Book ---" << endl;
@@ -199,15 +199,15 @@ void displayMenu() {
     cout << "Enter your choice (1-6): ";
 }
 
-int main(){
- Library library;
+int main() {
+    Library library;
     int choice;
 
     do {
         displayMenu();
         cin >> choice;
 
-        // Basic input validation
+       
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
