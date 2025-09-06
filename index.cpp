@@ -60,7 +60,19 @@ private:
             file.close();
         }
     }
-
+ void saveBooksToFile() {
+        ofstream file(booksFile);
+        if (file.is_open()) {
+            for (Book &book : books) {
+                file << book.id << endl;
+                file << book.name << endl;
+                file << book.author << endl;
+                file << (book.isIssued ? 1 : 0) << endl;
+                file << book.issuedTo << endl;
+            }
+            file.close();
+        }
+    }
 
 
 int main(){
