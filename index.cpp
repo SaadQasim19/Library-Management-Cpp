@@ -99,6 +99,17 @@ public:
             }
         }
 
+        cin.ignore(); // Clear input buffer
+        cout << "Enter Book Name: ";
+        getline(cin, name);
+        cout << "Enter Author Name: ";
+        getline(cin, author);
+
+        Book newBook(id, name, author);
+        books.push_back(newBook);
+        cout << "Book added successfully!" << endl;
+        saveBooksToFile();
+    }
 
 int main(){
 
