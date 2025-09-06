@@ -123,6 +123,23 @@ public:
         }
     }
 
+     void searchBook() {
+        int searchId;
+        cout << "\n--- Search for a Book ---" << endl;
+        cout << "Enter Book ID to search: ";
+        cin >> searchId;
+
+        for (Book &book : books) {
+            if (book.id == searchId) {
+                cout << "Book Found!" << endl;
+                book.display();
+                return;
+            }
+        }
+        cout << "Book with ID " << searchId << " not found." << endl;
+    }
+
+
 int main(){
 
 }
