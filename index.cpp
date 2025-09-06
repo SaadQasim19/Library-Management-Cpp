@@ -200,5 +200,44 @@ void displayMenu() {
 }
 
 int main(){
+ Library library;
+    int choice;
 
+    do {
+        displayMenu();
+        cin >> choice;
+
+        // Basic input validation
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a number." << endl;
+            continue;
+        }
+
+        switch (choice) {
+            case 1:
+                library.addBook();
+                break;
+            case 2:
+                library.displayAllBooks();
+                break;
+            case 3:
+                library.searchBook();
+                break;
+            case 4:
+                library.issueBook();
+                break;
+            case 5:
+                library.returnBook();
+                break;
+            case 6:
+                cout << "Thank you for using the Library Management System. Goodbye!" << endl;
+                break;
+            default:
+                cout << "Invalid choice! Please select an option between 1-6." << endl;
+        }
+    } while (choice != 6);
+
+    return 0;
 }
