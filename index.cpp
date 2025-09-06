@@ -111,6 +111,18 @@ public:
         saveBooksToFile();
     }
 
+       void displayAllBooks() {
+        if (books.empty()) {
+            cout << "\nNo books in the library." << endl;
+            return;
+        }
+
+        cout << "\n--- All Books in Library ---" << endl;
+        for (Book &book : books) {
+            book.display();
+        }
+    }
+
 int main(){
 
 }
