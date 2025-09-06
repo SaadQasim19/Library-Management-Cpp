@@ -83,6 +83,23 @@ public:
         saveBooksToFile();
     }
 
+  void addBook() {
+        int id;
+        string name, author;
+
+        cout << "\n--- Add New Book ---" << endl;
+        cout << "Enter Book ID: ";
+        cin >> id;
+
+        // Check if ID already exists
+        for (Book &book : books) {
+            if (book.id == id) {
+                cout << "Error! A book with this ID already exists." << endl;
+                return;
+            }
+        }
+
+
 int main(){
 
 }
