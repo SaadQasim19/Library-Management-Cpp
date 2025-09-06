@@ -188,6 +188,17 @@ public:
     }
 };
 
+void displayMenu() {
+    cout << "\n\n*** Library Management System ***" << endl;
+    cout << "1. Add a New Book" << endl;
+    cout << "2. Display All Books" << endl;
+    cout << "3. Search for a Book" << endl;
+    cout << "4. Issue a Book" << endl;
+    cout << "5. Return a Book" << endl;
+    cout << "6. Exit" << endl;
+    cout << "Enter your choice (1-6): ";
+}
+
 int main(){
 
 }
