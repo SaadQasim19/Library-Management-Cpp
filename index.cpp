@@ -165,6 +165,28 @@ public:
         cout << "Book with ID " << issueId << " not found." << endl;
     }
 
+    void returnBook() {
+        int returnId;
+        cout << "\n--- Return a Book ---" << endl;
+        cout << "Enter Book ID to return: ";
+        cin >> returnId;
+
+        for (Book &book : books) {
+            if (book.id == returnId) {
+                if (!book.isIssued) {
+                    cout << "This book was not issued. It is already available." << endl;
+                    return;
+                }
+                cout << "Book \"" << book.name << "\" returned by " << book.issuedTo << "." << endl;
+                book.isIssued = false;
+                book.issuedTo = "";
+                saveBooksToFile();
+                return;
+            }
+        }
+        cout << "Book with ID " << returnId << " not found." << endl;
+    }
+};
 
 int main(){
 
