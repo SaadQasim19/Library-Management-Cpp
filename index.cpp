@@ -139,6 +139,32 @@ public:
         cout << "Book with ID " << searchId << " not found." << endl;
     }
 
+ void issueBook() {
+        int issueId;
+        string studentName;
+        cout << "\n--- Issue a Book ---" << endl;
+        cout << "Enter Book ID to issue: ";
+        cin >> issueId;
+        cin.ignore();
+
+        for (Book &book : books) {
+            if (book.id == issueId) {
+                if (book.isIssued) {
+                    cout << "Sorry, this book is already issued to: " << book.issuedTo << endl;
+                    return;
+                }
+                cout << "Enter Student Name: ";
+                getline(cin, studentName);
+                book.isIssued = true;
+                book.issuedTo = studentName;
+                cout << "Book issued successfully to " << studentName << "!" << endl;
+                saveBooksToFile();
+                return;
+            }
+        }
+        cout << "Book with ID " << issueId << " not found." << endl;
+    }
+
 
 int main(){
 
