@@ -32,6 +32,37 @@ public:
     }
 };
 
+class Library {
+private:
+    vector<Book> books;
+    string booksFile = "library_books.txt";
+
+    void loadBooksFromFile() {
+        ifstream file(booksFile);
+        if (file.is_open()) {
+            int id;
+            string name, author, issuedStatus, issuedTo;
+            while (file >> id) {
+                file.ignore();
+                getline(file, name);
+                getline(file, author);
+                file >> issuedStatus;
+                file.ignore();
+                getline(file, issuedTo);
+
+                Book newBook(id, name, author);
+                if (issuedStatus == "1") {
+                    newBook.isIssued = true;
+                    newBook.issuedTo = issuedTo;
+                }
+                books.push_back(newBook);
+            }
+            file.close();
+        }
+    }
+
+
+
 int main(){
 
 }
