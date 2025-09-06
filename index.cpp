@@ -74,6 +74,14 @@ private:
         }
     }
 
+public:
+    Library() {
+        loadBooksFromFile();
+    }
+
+    ~Library() {
+        saveBooksToFile();
+    }
 
 int main(){
 
